@@ -22,12 +22,12 @@
   --pink:   #ff6b9d;
   --orange: #ff9a3c;
   --purple: #6c63ff;
-  --bg:     #ffffff;
-  --card:   #f5f5f5;
+  --bg:     #ffffff; /* 배경: 하얀색 */
+  --card:   #f9f9f9; /* 카드 배경도 조금 더 밝게 조정 */
   --card2:  #eeeeee;
-  --border: rgba(0,0,0,0.10);
-  --text:   #111111;
-  --sub:    #555555;
+  --border: rgba(0,0,0,0.15); /* 경계선 가독성 상향 */
+  --text:   #000000; /* 주요 텍스트: 완전한 검은색 */
+  --sub:    #333333; /* 보조 텍스트: 기존보다 더 진한 회색 */
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bot: env(safe-area-inset-bottom, 0px);
 }
@@ -38,7 +38,39 @@ html, body {
   color: var(--text);
   font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased; /* 글자를 더 또렷하게 만듦 */
 }
+
+/* ── Header 수정 ── */
+#header {
+  /* 배경을 하얀색으로 원하신다면 그라데이션 제거 가능 */
+  background: #ffffff; 
+  padding: 20px 20px 16px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.h-title { 
+  font-size: 20px; 
+  font-weight: 800; 
+  color: #000000; /* 헤더 타이틀 검은색 */
+  margin-bottom: 3px; 
+  line-height: 1.3; 
+}
+
+.h-sub { 
+  font-size: 12px; 
+  color: #222222; /* 보조 설명도 더 진하게 */
+  margin-bottom: 14px; 
+}
+
+/* ── 기타 텍스트가 회색인 부분들 수정 ── */
+.ex-name { color: #000000; font-size: 14px; font-weight: 700; }
+.ex-target { font-size: 11px; color: #444444; margin-top: 3px; }
+.list-row .lname { color: #000000; font-weight: 500; }
+.tip-text { font-size: 12px; color: #222222; line-height: 1.7; }
 
 /* ── Layout shell ── */
 #app {
@@ -49,15 +81,6 @@ html, body {
   padding-bottom: var(--safe-bot);
 }
 
-/* ── Header ── */
-#header {
-  background: linear-gradient(135deg,#f0f4ff 0%,#e8eeff 50%,#dde8ff 100%);
-  padding: 20px 20px 16px;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
 #header::before {
   content:''; position:absolute; top:-40px; left:-40px;
   width:180px; height:180px;
